@@ -1,9 +1,12 @@
 include:
   # No dongle: left is central, right is peripheral
-  - board: seeeduino_xiao_ble
-    shield: lintilla_left_central rgbled_adapter
+  # Board renamed from seeeduino_xiao_ble to xiao_ble/nrf52840 upstream (Zephyr HWMv2).
+  # rgbled_adapter dropped: its xiao_ble LED wiring targets a legacy board revision
+  # ("xiao_ble//zmk") that no longer exists in the current zmkfirmware/zephyr fork.
+  - board: xiao_ble/nrf52840
+    shield: lintilla_left_central
     snippet: studio-rpc-usb-uart
     artifact-name: lintilla-left-central
-  - board: seeeduino_xiao_ble
-    shield: lintilla_right_peripheral rgbled_adapter
+  - board: xiao_ble/nrf52840
+    shield: lintilla_right_peripheral
     artifact-name: lintilla-right-peripheral
